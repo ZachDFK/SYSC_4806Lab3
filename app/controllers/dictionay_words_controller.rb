@@ -6,9 +6,10 @@ class DictionayWordsController < ApplicationController
     input_word = params[:word]
     w_spellchecker = WebSpellchecker.new()
     inputHash = Hash.new()
+    
     inputHash["term"] = [input_word]
-    inputHash["known"] = true
-    inputHash["suggestions"] = w_spellchecker.correct(input_word) 
+    inputHash["known"] = w_spellchecker.known([input_word]).any?
+    inputHash["suggestions"] =  w_spellchecker.correct(input_word) 
     render :json => inputHash 
   end
 end
