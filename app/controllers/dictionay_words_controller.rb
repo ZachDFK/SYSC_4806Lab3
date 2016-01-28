@@ -1,7 +1,14 @@
+require '/home/ubuntu/workspace/blog/app/models/web_spellchecker.rb'
+
 class DictionayWordsController < ApplicationController
+  
   def spellcheck
     input_word = params[:word]
-    render text:'Spellching for ' + input_word + " ..."
-    
+    w_spellchecker = WebSpellchecker.new()
+    inputHash = Hash.new()
+    inputHash["term"] = [input_word]
+    inputHash["known"] = true
+    inputHash["suggestions"] = w_spellchecker.correct(input_word) 
+    render :json => inputHash 
   end
 end
