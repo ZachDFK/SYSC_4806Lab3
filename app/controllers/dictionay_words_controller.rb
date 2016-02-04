@@ -1,4 +1,4 @@
-require '#{Rails.root}/app/models/web_spellchecker.rb'
+require "#{Rails.root}/app/models/web_spellchecker.rb"
 
 class DictionayWordsController < ApplicationController
   
