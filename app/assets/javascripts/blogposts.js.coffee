@@ -26,4 +26,3 @@ $(document).on 'page:change', -> #when the page has loaded… do all this.
                     #reset current word to an empty string
                 
                     currentWord = ""
-                    str = "
